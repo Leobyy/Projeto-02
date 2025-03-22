@@ -1,19 +1,28 @@
 var save;
-var senhacorreta = "SANR"
+var senhacorreta = "SUBIR";
 var conterror = 0;
-function salva(l){
-    save=l
-    cont = 0
-    conterror++
-    if (conterror > 3){
-        return window.location = "zfalha.html"
+var contlimite = 4;
+
+function salva(button) {
+  save = button.textContent;
+  cont = 0;
+
+  if (save == senhacorreta) {
+    return (window.location = "sucesso.html")
+  }
+
+  if (conterror == contlimite) {
+    conterror = 0;
+    return (window.location = "zfalha.html");
+  }
+
+  for (i = 0; i < senhacorreta.length; i++) {
+    for (j = 0; j < senhacorreta.length; j++) {
+      if (save[j] == senhacorreta[i]) {
+        cont++;
+      }
     }
-    for(i=0; i < senhacorreta.length; i++){
-        for(j=0; j < save.length; j++){
-            if(save[j] === senhacorreta[i]){
-                cont++
-            }
-        }
-    }
-    return alert(cont + "/" + 5 + "   //   TENTATIVAS RESTANTES:" + [4-conterror]); 
+  }
+  conterror++
+  return alert(cont + "/" + 5 + " LETRAS CORRETAS  //   TENTATIVAS RESTANTES: " + [contlimite + 1 - conterror] + "/" + [contlimite+1]);
 }
