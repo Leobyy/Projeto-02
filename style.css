@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ background-image: url('./asssets/wallpaper2you_86592.gif');
+}
+
+body * {
+  font-family: "Bytesized", sans-serif;
+  font-size: xx-large;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(47, 255, 0, 0.8);
+}
+
+#c1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaço entre os botões */
+  justify-content: center;
+}
+
+.bt {
+  background-color: rgba(0, 0, 0, 0.5);
+  flex: 1 1 auto; /* Faz os botões crescerem e encolherem conforme necessário */
+  min-width: 100px; /* Largura mínima dos botões */
+  padding: 10px 20px;
+  font-size: 3vw; /* Tamanho do texto relativo à largura da viewport*/
+  border: none; /* Remove as bordas dos botões */
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bt:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+  .bt {
+    font-size: 3vw; /* Aumenta o tamanho do texto em telas menores */
+  }
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 botões por linha em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    grid-template-columns: 1fr; /* 1 botão por linha em telas muito pequenas */
+  }
+}
